@@ -11,6 +11,11 @@ public class Rocket : MonoBehaviour
     public float speed;
     public float rotatingSpeed;
 
+    [Header("Wrap")]
+    public float screenTop;
+    public float screenBottom;
+    public float screenRight;
+    public float screenLeft;
     //#### State ####
     private float rotating; 
     private bool isThrusting;
@@ -45,6 +50,7 @@ public class Rocket : MonoBehaviour
         {
             StartCoroutine(Shoot());
         }
+        WrapRocket();
     }
 
     private void FixedUpdate() 
@@ -60,11 +66,52 @@ public class Rocket : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision other) 
+    {
+        if(other.gameObject.tag == "Asteroid")
+        {
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            this.gameObject.SetActive(false);
+            GameManager.Instance.RocketDestroyed();
+        }   
+    }
+    private void OnEnable() 
+    {
+        gameObject.layer = LayerMask.NameToLayer("IgnoreCollisions"); 
+        Invoke(nameof(ReturnPlayerLayer),3.0f);  
+    }
+    private void ReturnPlayerLayer()
+    {
+        gameObject.layer = LayerMask.NameToLayer("Player");  
+    }
     IEnumerator Shoot()
     {
         canShot = false;
         Bullet bullet = Instantiate(this.bulletPrefab,bulletPoint.transform.position,this.transform.rotation);
         yield return new WaitForSeconds(timeBetweenBullets);
         canShot = true;
+    }
+
+    private void WrapRocket()
+    {
+        Vector3 newPos = transform.position;
+        if(transform.position.z > screenTop)
+        {
+            newPos.z = screenBottom;
+        }
+        if(transform.position.z < screenBottom)
+        {
+            newPos.z = screenTop;
+        }
+        if(transform.position.x > screenRight)
+        {
+            newPos.x = screenLeft;
+        }
+        if(transform.position.x < screenLeft)
+        {
+            newPos.x = screenRight;
+        }
+        transform.position = newPos;
     }
 }

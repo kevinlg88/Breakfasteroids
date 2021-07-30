@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4570063871280165533
+--- !u!1 &727956798318146709
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,45 +8,45 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3758236623979964455}
-  - component: {fileID: 254501591770425218}
-  - component: {fileID: 2624715196134822728}
-  m_Layer: 0
-  m_Name: Asteroid
+  - component: {fileID: 727956798318146707}
+  - component: {fileID: 727956798318146706}
+  - component: {fileID: 727956798318146705}
+  m_Layer: 8
+  m_Name: Asteroid gameobject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3758236623979964455
+--- !u!4 &727956798318146707
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4570063871280165533}
-  m_LocalRotation: {x: -0.7064706, y: -0.0006535084, z: -0.0006546842, w: 0.70774174}
-  m_LocalPosition: {x: 1.8199993, y: 0.20111251, z: 1.04}
-  m_LocalScale: {x: 13.81348, y: 13.81348, z: 13.81348}
+  m_GameObject: {fileID: 727956798318146709}
+  m_LocalRotation: {x: -0.70647067, y: -0.00065350847, z: -0.00065468426, w: 0.7077418}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 7.653774, y: 7.653772, z: 7.6537724}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 7680643732719962686}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -89.897, y: 0, z: -0.106}
---- !u!33 &254501591770425218
+--- !u!33 &727956798318146706
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4570063871280165533}
+  m_GameObject: {fileID: 727956798318146709}
   m_Mesh: {fileID: -8803937527578110353, guid: 302144e742e24ae44a813ec0fa10a74b, type: 3}
---- !u!23 &2624715196134822728
+--- !u!23 &727956798318146705
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4570063871280165533}
+  m_GameObject: {fileID: 727956798318146709}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -81,3 +81,92 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &2336631792804991430
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7680643732719962686}
+  - component: {fileID: 4525005859798999330}
+  - component: {fileID: 3056812976404823141}
+  - component: {fileID: 945069890264434942}
+  m_Layer: 8
+  m_Name: Asteroid
+  m_TagString: Asteroid
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7680643732719962686
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2336631792804991430}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.24554741, y: 0.21871647, z: 0.9339071}
+  m_LocalScale: {x: 1.4752568, y: 1.4752568, z: 1.4752568}
+  m_Children:
+  - {fileID: 727956798318146707}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4525005859798999330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2336631792804991430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d565f5a1ac64a924a846780110b9075d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colors:
+  - {r: 1, g: 0, b: 0.12156863, a: 0}
+  - {r: 0.36078432, g: 0.6901961, b: 0.43529412, a: 0}
+  - {r: 0.39607844, g: 0.05490196, b: 0.99215686, a: 0}
+  - {r: 0.7176471, g: 0.7764706, b: 0, a: 0}
+  - {r: 0, g: 0.050980393, b: 1, a: 0}
+  size: 2
+  minSize: 1
+  maxSize: 3
+  speed: 5
+  screenTop: 1.6
+  screenBottom: -1.6
+  screenRight: 1.6
+  screenLeft: -1.6
+--- !u!135 &3056812976404823141
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2336631792804991430}
+  m_Material: {fileID: 13400000, guid: d64b7eef06896524fb800d87bb183111, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.07725581
+  m_Center: {x: 0.0014429541, y: -0.007919826, z: -0.0014919376}
+--- !u!54 &945069890264434942
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2336631792804991430}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 116
+  m_CollisionDetection: 0
