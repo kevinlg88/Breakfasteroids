@@ -16,20 +16,21 @@ public class Rocket : MonoBehaviour
     public float screenBottom;
     public float screenRight;
     public float screenLeft;
-    //#### State ####
+    //---- State ----
     private float rotating; 
     private bool isThrusting;
-    //###############
+    //---------------
     private bool canShot = true;
     private GameObject bulletPoint;
+    private GameObject shield;
     private Rigidbody rb;
 
     private void Awake() 
     {
+        shield = transform.Find("Shield").gameObject;
         rb = GetComponent<Rigidbody>();
         bulletPoint = transform.Find("BulletPoint").gameObject;  
     }
-    // Update is called once per frame
     void Update()
     {
         isThrusting = InputManager.Instance.isPressingForward;
@@ -79,11 +80,16 @@ public class Rocket : MonoBehaviour
     private void OnEnable() 
     {
         gameObject.layer = LayerMask.NameToLayer("IgnoreCollisions"); 
+        canShot = false;
+        shield.SetActive(true);
         Invoke(nameof(ReturnPlayerLayer),3.0f);  
     }
     private void ReturnPlayerLayer()
     {
-        gameObject.layer = LayerMask.NameToLayer("Player");  
+        gameObject.layer = LayerMask.NameToLayer("Player"); 
+        canShot = true;
+        shield.SetActive(false);
+
     }
     IEnumerator Shoot()
     {

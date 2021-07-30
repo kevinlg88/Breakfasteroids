@@ -46,7 +46,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 100
-  lifeTime: 10
+  lifeTime: 3
+  screenTop: 1.6
+  screenBottom: -1.6
+  screenRight: 1.6
+  screenLeft: -1.6
 --- !u!54 &2749694575200832399
 Rigidbody:
   m_ObjectHideFlags: 0

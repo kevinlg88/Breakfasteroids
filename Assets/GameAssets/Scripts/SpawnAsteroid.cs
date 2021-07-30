@@ -14,10 +14,20 @@ public class SpawnAsteroid : MonoBehaviour
     public float spawnDistance = 15.0f;
     void Start()
     {
-        InvokeRepeating(nameof(Spawn), spawnRate, spawnRate);
+        StartCoroutine(Spawn());
     }
 
-    private void Spawn()
+    private void Update() 
+    {
+        if(GameManager.Instance.isGameOver)
+        {
+            spawnRate = 0;
+            spawnAmount = 0;
+            StopCoroutine(Spawn());
+        }    
+    }
+
+    IEnumerator Spawn()
     {
         for(int i = 0; i < spawnAmount; i++)
         {
@@ -30,5 +40,7 @@ public class SpawnAsteroid : MonoBehaviour
             asteroid.size = Random.Range(asteroid.minSize, asteroid.maxSize);
             asteroid.SetTrajectory(rotation * spawnDirection);
         }
+        yield return new WaitForSeconds(spawnRate);
+        StartCoroutine(Spawn());
     }
 }

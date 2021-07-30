@@ -18,12 +18,14 @@ public class Asteroid : MonoBehaviour
     public float screenRight;
     public float screenLeft;
     private Renderer render;
+    private AudioSource sound; 
     private Rigidbody rb;
 
     private void Awake() 
     {
         render = transform.Find("Asteroid gameobject").gameObject.GetComponent<Renderer>();
         rb = GetComponent<Rigidbody>();    
+        sound = GetComponent<AudioSource>();
     }
     void Start()
     {
@@ -60,11 +62,13 @@ public class Asteroid : MonoBehaviour
     {
         if(other.gameObject.tag == "Bullet")
         {
+            AudioManager.Instance.Play("eat");
             if((size * 0.5f) >= minSize)
             {
                 CreateSplit();
                 CreateSplit();
             }
+            GameManager.Instance.AsteroidDestroyed(this);
             Destroy(this.gameObject);
         }
     }
